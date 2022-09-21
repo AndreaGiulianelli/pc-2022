@@ -10,7 +10,7 @@ import smart_room.centralized.SinglelBoardSimulator;
 public class OnState implements FsmState {
     private double currentLuminosity;
     private boolean currentPresence;
-    private SinglelBoardSimulator board;
+    private final SinglelBoardSimulator board;
 
     public OnState(final SinglelBoardSimulator board) {
         this.board = board;
@@ -22,11 +22,11 @@ public class OnState implements FsmState {
     @Override
     public FsmState dispatch(final Event event) {
         if(event instanceof PresenceDetected) {
-            currentPresence = true;
+            this.currentPresence = true;
         } else if(event instanceof PresenceNoMoreDetected) {
-            currentPresence = false;
+            this.currentPresence = false;
         } else if(event instanceof LightLevelChanged) {
-            currentLuminosity = ((LightLevelChanged) event).getNewLevel();
+            this.currentLuminosity = ((LightLevelChanged) event).getNewLevel();
         }
         return checkState();
     }
