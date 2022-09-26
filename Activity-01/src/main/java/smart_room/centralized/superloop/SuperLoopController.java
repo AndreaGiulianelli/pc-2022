@@ -16,6 +16,11 @@ public class SuperLoopController extends Thread {
             this.currentState.sense();
             this.currentState.decide();
             this.currentState = this.currentState.act();
+            try {
+                Thread.sleep(40);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 }
