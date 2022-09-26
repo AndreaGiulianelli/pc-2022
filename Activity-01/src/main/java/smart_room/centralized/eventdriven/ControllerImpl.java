@@ -8,7 +8,7 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class ControllerImpl extends Thread implements Controller {
-    public static final double LUMINOSITY_THREESHOLD = 0.3;
+    public static final double LUMINOSITY_THRESHOLD = 0.3;
     private final BlockingQueue<Event> queue;
     private FsmState currentState;
 

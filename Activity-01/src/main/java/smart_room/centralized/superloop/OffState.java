@@ -22,7 +22,7 @@ public class OffState implements FsmSpState{
 
     @Override
     public void decide() {
-        this.nextCommand = currentPresence && currentLuminosity < SuperLoopController.LUMINOSITY_THREESHOLD;
+        this.nextCommand = currentPresence && currentLuminosity < SuperLoopController.LUMINOSITY_THRESHOLD;
     }
 
     @Override

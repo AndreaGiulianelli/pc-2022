@@ -31,7 +31,7 @@ public class OffState implements FsmState {
     }
 
     private FsmState checkState() {
-        if(currentPresence && currentLuminosity < ControllerImpl.LUMINOSITY_THREESHOLD) {
+        if(currentPresence && currentLuminosity < ControllerImpl.LUMINOSITY_THRESHOLD) {
             return new OnState(this.board);
         }
         return this;
