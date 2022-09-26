@@ -1,11 +1,11 @@
 package smart_room.centralized;
 
 import smart_room.Event;
-import smart_room.centralized.control.ControllerImpl;
+import smart_room.centralized.eventdriven.ControllerImpl;
 
-public class TestController {
+public class TestEventDrivenController {
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) {
 		final SinglelBoardSimulator board = new SinglelBoardSimulator();
 		board.init();
 		final ControllerImpl controller = new ControllerImpl(board);
@@ -16,11 +16,6 @@ public class TestController {
 		});
 
 		controller.start();
-		
-		while (true) {
-			System.out.println("Pres Det: " + board.presenceDetected() + " - Light level: " + board.getLuminosity());
-			Thread.sleep(1000);
-		}
 	}
 
 }

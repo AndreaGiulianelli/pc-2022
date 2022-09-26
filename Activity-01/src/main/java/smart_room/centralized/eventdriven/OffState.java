@@ -1,22 +1,21 @@
-package smart_room.centralized.control;
+package smart_room.centralized.eventdriven;
 
-import org.apache.commons.math3.analysis.function.Sin;
 import smart_room.Event;
 import smart_room.centralized.LightLevelChanged;
 import smart_room.centralized.PresenceDetected;
 import smart_room.centralized.PresenceNoMoreDetected;
 import smart_room.centralized.SinglelBoardSimulator;
 
-public class OnState implements FsmState {
+public class OffState implements FsmState {
     private double currentLuminosity;
     private boolean currentPresence;
     private final SinglelBoardSimulator board;
 
-    public OnState(final SinglelBoardSimulator board) {
+    public OffState(final SinglelBoardSimulator board) {
         this.board = board;
         this.currentPresence = this.board.presenceDetected();
         this.currentLuminosity = this.board.getLuminosity();
-        this.board.on(); // not optimal for the control flow.
+        this.board.off();
     }
 
     @Override
@@ -32,9 +31,10 @@ public class OnState implements FsmState {
     }
 
     private FsmState checkState() {
-        if(!currentPresence || currentLuminosity >= ControllerImpl.LUMINOSITY_THREESHOLD) {
-            return new OffState(this.board);
+        if(currentPresence && currentLuminosity < ControllerImpl.LUMINOSITY_THREESHOLD) {
+            return new OnState(this.board);
         }
         return this;
     }
+
 }

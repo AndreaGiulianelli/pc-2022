@@ -1,4 +1,4 @@
-package smart_room.centralized.control;
+package smart_room.centralized.eventdriven;
 
 import smart_room.Controller;
 import smart_room.Event;
