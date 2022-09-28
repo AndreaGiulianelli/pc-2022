@@ -2,7 +2,7 @@
  * Simulator/mock for a light device
  * 
  */
-package smart_room.distributed;
+package smart_room.light_thing;
 
 import smart_room.*;
 
