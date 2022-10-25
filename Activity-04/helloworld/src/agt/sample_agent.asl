@@ -11,15 +11,14 @@ language(ita). // I don't have to use string, we can also use symbols.
 
 /*we are assign the agent the goal to say hello
 we can pass also parameters, also partial information with underscore -> we specify only the information we know
-If we don't specify a plan for that goal, in the console there will be an error, but the agent will stay on, because it's normal, like in human when we don't have a specific pre-defined plan for a thing.
+If we don't specify a plan for that goal, in the console there will be an error, but the agent will stay on, because it's normal, like in human when we don't have a specific pre-defined plan for a thing. As said in the slide, we can also react to it, and then we can for example learn how do to it, of we ask to another agent etc...
 */
 !greet. 
 !anotherGoal("bla", 13, p(1, _)).
 
 /*
 We can have multiple goals, that will try to achieve concurrently.
-Remember it has a single cycle of control, it choose always one action at a time, we can't have race conditions.
-
+Remember it has a single cycle of control, it choose always one action at a time.
 */
 
 /* Plans */
