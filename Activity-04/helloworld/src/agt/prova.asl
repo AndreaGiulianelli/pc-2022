@@ -10,6 +10,7 @@
 !prova.
 !prova2.
 
+// to solve: @prova [atomic]
 +!prova
     <- println("ciao");
        println("come");
@@ -17,6 +18,7 @@
        println("bene");
        !!prova.
 
+// to solve: @prova2 [atomic]
 +!prova2
     <- println("prova2");
        println("prova2-1");
